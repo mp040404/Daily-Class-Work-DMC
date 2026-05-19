@@ -1,0 +1,12 @@
+package SingleLinkList;
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		SingleLinkList list = new SingleLinkList();
+		
+		System.out.println("\n addFirst() : ");
+	}
+
+}

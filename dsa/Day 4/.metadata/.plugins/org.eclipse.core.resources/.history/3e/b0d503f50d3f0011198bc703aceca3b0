@@ -1,0 +1,28 @@
+package SinglyLinearLinkedList;
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		SinglyLinearLinkedList list = new SinglyLinearLinkedList();
+		
+		System.out.println("addFirst() : ");
+		list.addFirst(66);
+		list.addFirst(55);
+		list.addFirst(78);
+		list.displayList();
+		
+		System.out.println("addLast() : ");
+		list.addLast(90);
+		list.addLast(88);
+		list.displayList();
+		
+		System.out.println("addAtPosition() : ");
+		list.addAtPosition(70, -2);
+		list.displayList();
+		list.addAtPosition(95, 100);
+		
+		
+	}
+
+}

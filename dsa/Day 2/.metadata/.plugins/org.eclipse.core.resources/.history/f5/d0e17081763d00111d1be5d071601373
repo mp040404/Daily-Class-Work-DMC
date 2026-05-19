@@ -1,0 +1,21 @@
+package Bubble_Sorting;
+
+import java.util.Arrays;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		int arr[] = { 30,20,60,50,10,40 } ;
+		System.out.println("Array before sort : " + Arrays.toString(arr));
+		efficientBubbleSort(arr,arr.length);
+		System.out.println("Array After Sort :");
+		
+	}
+
+	private static void efficientBubbleSort(int[] arr, int length) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

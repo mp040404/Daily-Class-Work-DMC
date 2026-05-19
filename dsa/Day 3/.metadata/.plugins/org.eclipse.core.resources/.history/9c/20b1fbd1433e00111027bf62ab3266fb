@@ -1,0 +1,18 @@
+package SingleLinkList;
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		SingleLinkList list = new SingleLinkList();
+		
+		System.out.println("\n addFirst() : ");
+		list.addFirst(66);
+		list.addFirst(50);
+		list.addFirst(60);
+		list.displayList();
+		
+		
+	}
+
+}

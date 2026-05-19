@@ -1,0 +1,57 @@
+package Linear_Queue;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class main {
+	
+	
+	
+	public static void main(String[] args ) {
+		
+		Queue q = new Queue(5);
+		Scanner sc = new Scanner(System.in);
+		int ch ;
+		do {
+			System.out.println("1: push\n2: pop\n0: Exit");
+			System.out.println("Enter your choice :");
+			ch = sc.nextInt();
+			
+			switch(ch) {
+			case 1 :
+				if(q.isFull()) {
+					System.out.println("Queue is full");
+				}
+				else {
+					System.out.println("Enter Value to push");
+					int value = sc.nextInt();
+					q.push(value);
+				}
+				break;
+			case 2 :
+				if(q.isEmpty()) {
+					System.out.println("Queue is empty");
+				}else {
+					int val = q.pop();
+					System.out.println("Poped Value = "+val);
+				}
+				break;
+			case 3 :
+				if(q.isEmpty()) {
+					System.out.println("Queue is empty");
+				}
+				else
+				{
+					int val=q.peek();
+					System.out.println("peeked value = ");
+				}
+				break;
+			}
+			
+		}while(ch != 0);
+		
+	}
+
+	
+
+}

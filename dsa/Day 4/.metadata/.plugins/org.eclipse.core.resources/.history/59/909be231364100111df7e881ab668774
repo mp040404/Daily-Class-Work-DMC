@@ -1,0 +1,63 @@
+package com.mohit.linkedlist;
+
+
+import java.util.Scanner;
+
+class TaskNode {
+	
+	int taskid;
+	String taskName;
+	TaskNode next ,prev;
+	
+
+	public TaskNode(int taskid, String taskName) {
+		super();
+		this.taskid = taskid;
+		this.taskName = taskName;
+		next = prev = null;
+		
+	}
+	
+}
+
+class TaskScheduler{
+	
+//	TaskNode head = null ;
+	
+	// Count tasks
+	
+//	public int countTasks() {
+//		if(head == null)
+//			return 0;
+//		int count = 0 ;
+//		TaskNode temp = head ;
+//		do
+//		{
+//			count++;
+//			temp = temp.next;
+//		}while(temp != head);
+//		return count;
+//	}
+//	
+	TaskNode head = null;
+	public int count() {
+		if (head == null)
+			return 0;
+		int count = 0;
+		TaskNode temp = head;
+		do {
+			count ++ ;
+			temp=temp.next;
+		}while(temp != head);
+		return count;
+	}
+	
+	public void addTask(int id , String name , int pos) {
+		TaskNode node = new TaskNode(id , name);
+		
+		if()
+		
+	}
+	
+	
+}

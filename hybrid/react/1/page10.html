@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- react application container -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // array of objects
+      const persons = [
+        { name: 'person1', age: 30, address: 'pune' },
+        { name: 'person2', age: 40, address: 'mumbai' },
+        { name: 'person3', age: 50, address: 'karad' },
+      ]
+
+      // create a react root
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+
+      // create element to render the persons
+      const container = persons.map((person) => {
+        return (
+          <div>
+            <div>name: {person.name}</div>
+            <div>age: {person.age}</div>
+            <div>address: {person['address']}</div>
+            <hr />
+          </div>
+        )
+      })
+
+      // render the react elements
+      root.render(container)
+    </script>
+  </body>
+</html>

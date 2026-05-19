@@ -1,0 +1,31 @@
+package SingleLinkList;
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		SingleLinkList list = new SingleLinkList();
+		
+		System.out.println("\n addFirst() : ");
+		list.addFirst(66);
+		list.addFirst(50);
+		list.addFirst(60);
+		list.displayList();
+		
+		
+		 System.out.println("\n addLast() : ");
+		 list.addLast(90) ;
+		 list.displayList();
+		 list.addLast(88) ;
+		 list.displayList();
+		 
+		// System.out.println("\n addAtPosition() : ");
+		// list.addAtPosition(70, -2);
+		// list.displayList();
+		// list.addAtPosition(55, 3);
+		// list.displayList();
+		// list.addAtPosition(33, 12);
+		// list.displayList();
+	}
+
+}

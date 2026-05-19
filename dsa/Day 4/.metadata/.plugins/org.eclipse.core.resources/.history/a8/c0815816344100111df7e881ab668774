@@ -1,0 +1,9 @@
+package com.mohit.linkedlist;
+
+
+import java.util.Scanner;
+
+class TaskNode {
+	
+	
+}

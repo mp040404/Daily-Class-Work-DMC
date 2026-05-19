@@ -1,0 +1,17 @@
+package com.mohit.linkedlist;
+
+public class TaskNode {
+
+	int taskid;
+	String taskname;
+	TaskNode next , prev;
+	
+	public TaskNode(int taskid, String taskname) {
+		this.taskid = taskid;
+		this.taskname = taskname;
+		this.next = null;
+		this.prev = null;
+	}
+	
+	
+}

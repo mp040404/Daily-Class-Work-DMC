@@ -1,0 +1,51 @@
+package SinglyLinearLinkedList;
+
+public class SinglyLinearLinkedList {
+	
+	static class node{
+		int data;
+		node next;
+		public node(int data) {
+			super();
+			this.data = data;
+			this.next = null;
+		}
+	}
+	
+	node head;
+	
+	public SinglyLinearLinkedList() {
+		this.head = null ;
+	}
+	
+	public void addFirst(int data) {
+		node nn = new node(data);
+		
+		if(head == null)
+		{
+			head = nn ; 
+		}
+		else
+		{
+			nn.next = head ;
+			head = nn;
+		}
+		
+	}
+	
+	public void displayList() {
+		if(head == null ) {
+			System.out.println("List is Empty ... ");
+		}
+		else 
+		{
+			System.out.println("List : ");
+			node trav = head ;
+			while (trav != null) {
+				System.out.println(" ----> "+trav.data);
+				trav = trav.next;
+			}
+			System.out.println();
+		}
+	}
+}

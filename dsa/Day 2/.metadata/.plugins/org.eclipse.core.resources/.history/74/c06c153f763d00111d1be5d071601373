@@ -1,0 +1,11 @@
+package Bubble_Sorting;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		int arr[] = { 30,20,60,50,10,40 } ;
+		
+	}
+
+}

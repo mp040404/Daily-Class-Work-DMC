@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- react application container -->
+      <div id="root"></div>
+    </div>
+
+    <script type="text/babel">
+      // function component
+      function Person() {
+        // data to be rendered
+        const person = {
+          name: 'person1',
+          age: 30,
+          email: 'person1@test.com',
+          address: 'pune',
+        }
+
+        // create the person info tag
+        return (
+          <div>
+            <div>
+              <strong>Name:</strong> {person['name']}
+            </div>
+            <div>
+              <strong>Age:</strong> {person['age']}
+            </div>
+            <div>
+              <strong>Email:</strong> {person['email']}
+            </div>
+            <div>
+              <strong>Address:</strong> {person['address']}
+            </div>
+          </div>
+        )
+      }
+
+      // function component
+      function Car() {
+        const car = {
+          model: 'triber',
+          company: 'renault',
+          price: 10,
+        }
+
+        return (
+          <div>
+            <div>
+              <strong>Model:</strong>
+              {car['model']}
+            </div>
+            <div>
+              <strong>Company:</strong>
+              {car['company']}
+            </div>
+            <div>
+              <strong>Price:</strong>
+              {car['price']}
+            </div>
+          </div>
+        )
+      }
+
+      // function component
+      function Book() {
+        // data
+        const book = {
+          title: 'Wings of fire',
+          author: 'Dr. Abdul Kalam',
+          price: 1000,
+        }
+
+        // logic to render the UI
+        return (
+          <div>
+            <div>
+              <strong>Title: </strong> {book['title']}
+            </div>
+            <div>
+              <strong>Author: </strong> {book['author']}
+            </div>
+            <div>
+              <strong>Price: </strong> {book['price']}
+            </div>
+          </div>
+        )
+      }
+
+      // create react root
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+
+      // create a container for both person and car
+      // const container = (
+      //   <div>
+      //     {Person()}
+      //     {Car()}
+      //   </div>
+      // )
+
+      const container = (
+        <div>
+          <Person />
+          <hr />
+          <Car />
+          <hr />
+          <Book />
+          <hr />
+        </div>
+      )
+
+      // render the element
+      root.render(container)
+    </script>
+  </body>
+</html>

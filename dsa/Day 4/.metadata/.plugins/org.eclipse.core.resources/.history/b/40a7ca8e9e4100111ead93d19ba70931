@@ -1,0 +1,224 @@
+package xyz;
+
+import java.util.Scanner;
+
+public class TaskManager {
+
+    // Node class
+    static class TaskNode {
+        int taskId;
+        String taskName;
+        TaskNode next;
+        TaskNode prev;
+
+        public TaskNode(int id, String name) {
+            this.taskId = id;
+            this.taskName = name;
+            next = prev = null;
+        }
+    }
+
+    private TaskNode head = null;
+    private int count = 0;
+
+    // 1. Insert Task at Position
+    public void insertAtPosition(int pos, int id, String name) {
+        if (pos < 1 || pos > count + 1) {
+            System.out.println("Invalid Position!");
+            return;
+        }
+
+        TaskNode newNode = new TaskNode(id, name);
+
+        // First node
+        if (head == null) {
+            head = newNode;
+            head.next = head.prev = head;
+        } 
+        else if (pos == 1) {
+            TaskNode tail = head.prev;
+
+            newNode.next = head;
+            newNode.prev = tail;
+            tail.next = newNode;
+            head.prev = newNode;
+            head = newNode;
+        } 
+        else {
+            TaskNode temp = head;
+
+            for (int i = 1; i < pos - 1; i++)
+                temp = temp.next;
+
+            newNode.next = temp.next;
+            newNode.prev = temp;
+            temp.next.prev = newNode;
+            temp.next = newNode;
+        }
+
+        count++;
+        System.out.println("Task Inserted Successfully!");
+    }
+
+    // 2. Delete Task
+    public void deleteAtPosition(int pos) {
+        if (head == null || pos < 1 || pos > count) {
+            System.out.println("Invalid Position!");
+            return;
+        }
+
+        // Single node
+        if (count == 1) {
+            head = null;
+        } 
+        else if (pos == 1) {
+            TaskNode tail = head.prev;
+            head = head.next;
+
+            head.prev = tail;
+            tail.next = head;
+        } 
+        else {
+            TaskNode temp = head;
+
+            for (int i = 1; i < pos; i++)
+                temp = temp.next;
+
+            temp.prev.next = temp.next;
+            temp.next.prev = temp.prev;
+        }
+
+        count--;
+        System.out.println("Task Deleted Successfully!");
+    }
+
+    // 3. Display Forward
+    public void displayForward() {
+        if (head == null) {
+            System.out.println("List is Empty!");
+            return;
+        }
+
+        TaskNode temp = head;
+        do {
+            System.out.println(temp.taskId + " - " + temp.taskName);
+            temp = temp.next;
+        } while (temp != head);
+    }
+
+    // 4. Display Backward
+    public void displayBackward() {
+        if (head == null) {
+            System.out.println("List is Empty!");
+            return;
+        }
+
+        TaskNode temp = head.prev;
+        TaskNode start = temp;
+
+        do {
+            System.out.println(temp.taskId + " - " + temp.taskName);
+            temp = temp.prev;
+        } while (temp != start);
+    }
+
+    // 5. Update Task
+    public void updateTask(int id, String newName) {
+        if (head == null) {
+            System.out.println("List is Empty!");
+            return;
+        }
+
+        TaskNode temp = head;
+        do {
+            if (temp.taskId == id) {
+                temp.taskName = newName;
+                System.out.println("Task Updated!");
+                return;
+            }
+            temp = temp.next;
+        } while (temp != head);
+
+        System.out.println("Task Not Found!");
+    }
+
+    // 6. Count Tasks
+    public int countTasks() {
+        return count;
+    }
+
+    // Menu
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        TaskManager list = new TaskManager();
+
+        int choice;
+
+        do {
+            System.out.println("\n--- Task Manager ---");
+            System.out.println("1. Add Task");
+            System.out.println("2. Delete Task");
+            System.out.println("3. Display Forward");
+            System.out.println("4. Display Backward");
+            System.out.println("5. Update Task");
+            System.out.println("6. Count Tasks");
+            System.out.println("7. Exit");
+
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Position: ");
+                    int pos = sc.nextInt();
+                    System.out.print("Enter Task ID: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter Task Name: ");
+                    String name = sc.nextLine();
+
+                    list.insertAtPosition(pos, id, name);
+                    break;
+
+                case 2:
+                    System.out.print("Enter Position: ");
+                    pos = sc.nextInt();
+                    list.deleteAtPosition(pos);
+                    break;
+
+                case 3:
+                    list.displayForward();
+                    break;
+
+                case 4:
+                    list.displayBackward();
+                    break;
+
+                case 5:
+                    System.out.print("Enter Task ID: ");
+                    id = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New Name: ");
+                    name = sc.nextLine();
+
+                    list.updateTask(id, name);
+                    break;
+
+                case 6:
+                    System.out.println("Total Tasks: " + list.countTasks());
+                    break;
+
+                case 7:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 7);
+
+        sc.close();
+    }
+
+}

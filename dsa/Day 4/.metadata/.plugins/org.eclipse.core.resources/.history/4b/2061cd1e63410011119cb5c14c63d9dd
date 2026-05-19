@@ -1,0 +1,165 @@
+package com.mohit.linkedlist;
+
+
+import java.util.Scanner;
+
+class TaskNode {
+	
+	int taskid;
+	String taskName;
+	TaskNode next ,prev;
+	
+
+	public TaskNode(int taskid, String taskName) {
+		super();
+		this.taskid = taskid;
+		this.taskName = taskName;
+		next = prev = null;
+		
+	}
+	
+}
+
+class TaskScheduler{
+	
+//	TaskNode head = null ;
+	
+	// Count tasks
+	
+//	public int countTasks() {
+//		if(head == null)
+//			return 0;
+//		int count = 0 ;
+//		TaskNode temp = head ;
+//		do
+//		{
+//			count++;
+//			temp = temp.next;
+//		}while(temp != head);
+//		return count;
+//	}
+//	
+	TaskNode head = null;
+	public int count() {
+		if (head == null)
+			return 0;
+		int count = 0;
+		TaskNode temp = head;
+		do {
+			count ++ ;
+			temp=temp.next;
+		}while(temp != head);
+		return count;
+	}
+	// Add Task at Position
+
+	public void addTask(int id , String name , int pos) {
+		
+		TaskNode node = new TaskNode(id, name);
+		
+		if(head == null) {
+			head = node ;
+			head.next = head.prev = head ;
+			return ;
+		}
+		int size = count();
+		
+		if(pos < 1 || pos > size + 1) {
+			System.out.println("Invalid Input");
+			return ;
+		}
+		
+		// Insert at position 1 (after head)
+		
+		if(pos == 1) {
+			TaskNode last = head.prev;
+			
+			node.next = head;
+			node.prev = last ;
+			
+			last.next = node ;
+			head.prev = node ;
+			
+			head = node ;
+			return ;
+		}
+		TaskNode temp = head ;
+		for(int i = 1 ; i < pos - 1 ; i++ ) {
+			temp = temp.next ;
+		}
+		node.next = temp.next;
+		node.prev = temp ;
+		
+		temp.next.prev = node ;
+		temp.next = node ;
+	}
+	
+	//Delete Task
+	public void deleteTask(int pos) {
+//		if(head == null) {
+//			System.out.println("List is Empty");
+//			return ;
+//		}
+//		int size = count();
+//		
+//		if(pos < 1 || pos > size) {
+//			System.out.println("Invalied position");
+//			return;
+//		}
+		if(head == null) {
+			System.out.println("Empty List");
+			return ;
+		}
+		int size = count();
+		if (pos < 1 || pos > size ) {
+			System.out.println("Invalid input");
+			return ;
+		}
+		
+		
+		// Delete head 
+		
+//		if (pos == 1 )
+//		{
+//			if (head.next == head) {
+//				head = null ;
+//				return ;
+//			}
+//			TaskNode last = head.prev ;
+//			head = head.next ;
+//			
+//			head.prev = last ;
+//			last.next = head ;
+//			return ;
+//		}
+//		
+//		TaskNode temp = head ; 
+//		for (int i = 1 ; i < pos ; i++) {
+//			temp = temp.next;
+//		}
+//		temp.prev.next = temp.next ;
+//		temp.next.prev = temp.prev ;
+		
+		if(pos == 1 ) {
+			if(head.next == head) {
+				head = null ;
+				return ;
+			}
+			TaskNode last = head.prev;
+			head = head.next ;
+			
+			head.prev = last ;
+			last.next = head ;
+			return ;
+		}
+		TaskNode temp = head ;
+		for(int i = 1; i< pos ; i++ ) {
+			temp = temp.next ;
+		}
+		temp.prev.next = temp.next ;
+		temp.next.prev = temp.prev ;
+	}
+	
+	
+	
+}

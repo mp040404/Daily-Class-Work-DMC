@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+     
+      const person = {
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'john@test.com',
+        address: 'USA',
+        age: 30,
+        salary: 15000,
+      }
+
+      
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+
+     
+      const container = (
+        <div>
+          <div>First name: {person.firstName}</div>
+          <div>Last name: {person.lastName}</div>
+          <div>Email: {person.email}</div>
+          <div>Address: {person.address}</div>
+          <div>Age: {person.age}</div>
+          <div>Salary: {person.salary}</div>
+        </div>
+      )
+
+     
+      root.render(container)
+    </script>
+  </body>
+</html>

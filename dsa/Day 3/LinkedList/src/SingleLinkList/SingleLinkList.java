@@ -1,0 +1,130 @@
+package SingleLinkList;
+
+public class SingleLinkList { //outer class
+	//inner class
+	static class node 
+	{
+		//data members node 
+		int data;
+		node next; // self referential class 
+		// members methods
+		public node(int data) {
+			super();
+			this.data = data;
+			this.next = null;
+		}
+	}//end of node class
+	
+	// data members of list ;
+	node head; // ref to first node 
+//	node tail; // ref to last node 
+//	int count; //count of nodes present in list
+	
+	public  SingleLinkList() {
+		this.head = null ;
+	}
+	
+	public void addFirst(int data) {
+		node nn = new node(data);//1. create node with given data
+		
+		if(head == null) {
+			
+			//case 1 : list empty
+			head = nn ; // make new node as first node 
+		}
+		else 
+		{
+			//case 2 : list is not empty 
+			nn.next = head ; // 1. add first node into next of new node
+			head = nn ; // 2. make new node as first node 
+		}
+	}
+	
+	public void displayList() {
+		if(head == null)
+			System.out.println("List is Empty..");
+		else
+		{
+			System.out.println("List : ");
+			//case 2 : List is not empty
+			node trav = head ; // declare temp ref as trav and copy the address of first node in trav
+			while (trav != null) {
+				System.out.println( " ----> " + trav.data);//print the data part
+				trav = trav.next;
+			}
+			System.out.println();
+		}
+	}
+	
+	public void addLast(int data) {
+		node nn = new node(data);//1. create node with given data
+		
+		if(head == null) {
+			//case 1 : List empty
+			head = nn; // make new node as first node 
+		}
+		else 
+		{
+			//case 2 : list is not empty
+			node trav = head ; // declare temp ref as trav and copy the address of first node in trav 
+			while(trav.next != null)
+			{
+				trav = trav.next;// node trav ref to the next node 
+			}
+			trav.next = nn ; // build link between last node and new node .
+		}
+		
+	}
+	
+	public void addAtPosition(int data , int pos) {
+		node nn = new node(data); // create node with given data
+		
+		if(head == null)
+		{
+			head = nn ;
+		}
+		else if (pos <= 1) //pos -> -3 / 0 / 1
+		{
+			nn.next = head ;
+			head = nn ;
+		}
+		else // pos -> 3 / 5 / 8 / 99
+		{
+			node trav = head ;
+			for (int i = 1 ; i < pos -1 && trav.next != null ; i++) { // travel to posi-1 or till last node
+				trav = trav.next;	
+			}
+			nn.next = trav.next;
+			trav.next = nn ;
+			
+		}
+	}
+	
+	public void delFirst() {
+		if(head == null)
+			System.out.println("List is Empty ");
+		else 
+		{
+			head = head.next; // move head on second node
+		}
+	}
+	
+	public void delLast() {
+		if(head == null) {
+			System.out.println("List is Empty");
+		}
+		else if(head.next == null) {
+			head = null ;
+		}
+		else 
+		{
+			node trav = head ;
+			while(trav.next.next.next != null )
+			{
+				trav = trav.next;
+			}
+			trav.next = null ; // Update the next ref value of trav as null
+		}
+	}
+
+}

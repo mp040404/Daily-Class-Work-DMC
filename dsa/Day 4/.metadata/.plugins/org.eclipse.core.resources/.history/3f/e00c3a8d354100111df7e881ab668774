@@ -1,0 +1,31 @@
+package practicepractice;
+
+public class TaskNode {
+	int taskid;
+	String taskname;
+	TaskNode next , prev;
+	public TaskNode(int taskid, String taskname) {
+		super();
+		this.taskid = taskid;
+		this.taskname = taskname;
+		
+		next = prev = null;
+	}
+}
+
+class TaskSchedular{
+	
+	TaskNode head = null;
+	
+	public int count() {
+		if(head == null)
+			return 0 ;
+		int count = 0 ;
+		TaskNode temp = head ;
+		do {
+			count++;
+			temp = temp.next; 
+		}while ( temp != head );
+	}
+	
+}

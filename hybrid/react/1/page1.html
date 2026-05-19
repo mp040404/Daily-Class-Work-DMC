@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>JavaScript Integration Demo</h1>
+    <p>this is a para</p>
+
+    <h5>User Info</h5>
+    <p id="first-name">first name : </p>
+    <p id="last-name">last name : </p>
+    <p id="address">address : </p>
+    <p id="phone">phone : </p>
+
+    <button onclick="onButtonclick()">click here</button>
+
+    <script>
+        function onButtonclick(){
+            // alert('this is test alert')
+
+            // get an object of p tag 
+            const paragraphs = document.getElementsByTagName('p')
+            paragraphs[0].innerHTML = '<h4> This is new content change by JS </h4>'
+
+            // user info
+
+            const firstName = 'Mohit'
+            const lastName = 'Phanase'
+            const address = 'kolhapur'
+            const phone = '9523654810'
+
+            const firstNamePara = document.getElementById('first-name')
+            const lastNamePara = document.getElementById('last-name')
+            const addressPara = document.getElementById('address')
+            const phonePara = document.getElementById('phone')
+
+
+            firstNamePara.innerHTML = `First name: ${firstName}`
+            lastNamePara.innerHTML = `Last name: ${lastName}`
+            addressPara.innerHTML = `Add: ${address}`
+            phonePara.innerHTML = `Phone: ${phone}`
+        }
+    </script>
+
+</body>
+</html>

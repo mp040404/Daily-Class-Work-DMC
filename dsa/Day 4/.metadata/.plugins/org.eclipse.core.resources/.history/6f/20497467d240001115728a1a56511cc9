@@ -1,0 +1,62 @@
+package com.mohit.linkedlist;
+
+import com.mohit.linkedlist.TaskNode.TaskScheduler;
+
+public class TaskNode {
+
+	int taskid;
+	String taskname;
+	TaskNode next , prev;
+	
+	public TaskNode(int taskid, String taskname) {
+		this.taskid = taskid;
+		this.taskname = taskname;
+		this.next = null;
+		this.prev = null;
+	}
+	
+	
+	
+	public TaskNode() {
+		super();
+	}
+
+
+
+	class TaskScheduler {
+		
+		
+		
+		public TaskScheduler() {
+			super();
+		}
+
+		TaskNode head = null;
+		
+		public int countTasks() {
+			if(head == null) 
+				return 0;
+			int count = 0 ;
+			TaskNode temp = head ;
+			do {
+				count++;
+				temp = temp.next;
+			}while(temp != head);
+			return count ;
+		}
+		
+		
+	}
+	
+}
+ class main {
+	
+	public static void main(String[] args) {
+		
+	
+		TaskScheduler ts = new TaskScheduler();
+		TaskNode nn = ts.new TaskNode(1, "Task1");   // ✅ works perfectly
+		System.out.println("Total Tasks : "+ts.countTasks());
+	}
+
+}

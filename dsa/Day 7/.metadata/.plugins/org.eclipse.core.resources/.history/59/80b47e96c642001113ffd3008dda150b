@@ -1,0 +1,258 @@
+package BinSearchTree;
+
+import java.util.Scanner;
+
+public class BinSearchTree {
+	
+	static class Node{
+		private int data ;
+		private Node left ;
+		private Node right;
+		public Node(int data) {
+			super();
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+		public int getData() {
+			return this.data = data;
+		}
+		
+	}
+	
+	private Node root;
+	
+	
+
+	public BinSearchTree() {
+		super();
+		this.root = null;
+	}
+	
+	public void add(int val) {
+		Node nn =new Node(val);
+		
+		if(root == null) {
+			root = nn ;
+		}else {
+			Node trav = root;
+			while(true) {
+				if(val < trav.data) {
+					if(trav.left == null) {
+						trav.left = nn;
+						break;
+					}
+					else 
+						trav = trav.left;
+				}
+				else {
+					if(trav.right == null) {
+						trav.right = nn ;
+						break ;
+					}
+					else 
+						trav = trav.right;
+				}
+			}
+		}
+	}
+	
+	private void preorder(Node trav) {
+		if(trav == null) 
+			return ;
+		System.out.print(trav.data + " , ");
+		preorder(trav.left);
+		preorder(trav.right);
+	}
+	
+	public void preorder() {
+		System.out.print("PRE : ");
+		preorder(root);
+		System.out.println();
+	}
+	
+	public void inorder(Node trav) {
+		if(trav == null)
+			return ;
+		inorder(trav.left);
+		System.out.print(trav.data + " , ");
+		inorder(trav.right);
+	}
+	
+	public void inorder() {
+		System.out.print("IN : ");
+		inorder(root);
+		System.out.println();
+	}
+
+	private void postorder(Node trav) {
+		if(trav == null)
+			return ;
+		postorder(trav.left);
+		postorder(trav.right);
+		System.out.print(trav.data + " , ");
+	}
+	
+	public void postorder() {
+		System.out.print("Post : ");
+		postorder(root);
+		System.out.println();
+	}
+	
+//	public Node search(int val) {
+//		Node trav = root ;
+//		while(trav != null) {
+//			if(val == trav.data)
+//				return trav;
+//			if(val < trav.data)
+//				trav = trav.left;
+//			if(val > trav.data)
+//				trav = trav.right;
+//		}
+//		return null;
+//	}
+	
+	public Node search(int val) {
+		return searchRecursive(root , val);
+		
+	}
+	
+	private Node searchRecursive(Node root, int val) {
+		Node trav = root ;
+		if(trav == null || trav.data == val) {
+			return trav;
+		}
+		if(val < trav.data) {
+			return searchRecursive(trav.left, val);
+		}
+		if(val > trav.data)
+		{
+			return searchRecursive(trav.right, val)
+		}
+		
+	return null;
+}
+
+	public Node[] searchWithParent(int val) {
+		Node trav = root;
+		Node parent = null ;
+		
+		while(trav != null) {
+			if (val == trav.data) 
+				return new Node[] {
+						trav,parent };
+				parent = trav ;
+				if(val < trav.data)
+					trav = trav.left;
+				else
+					trav = trav.right;
+				}
+				return new Node[] { null , null } ;
+			}
+		
+	void delete(int val) {
+		Node[] find = searchWithParent(val);
+		Node temp = find[0] , parent = find[1];
+		if(temp == null) {
+			System.out.println("Node Not Found");
+			return;
+		}
+		
+		if(temp.left != null && temp.right != null) {
+			parent = temp;
+			Node succ = temp.right;
+			while(succ.left != null) {
+				parent = succ ;
+				succ = succ.left ;
+			}
+			temp.data = succ.data;
+			temp = succ;
+		}
+		if(temp.left == null) {
+			if(temp == root) {
+				root = temp.right ;
+			}else if(temp == parent.left) {
+				parent.left = temp.right;
+			}else {
+				parent.right = temp.right;
+			}
+		}
+		else if(temp.right == null){
+			if(temp == root) {
+				root = temp.left;
+			}else if(temp == parent.left){
+				parent.left = temp.left ;
+			}else {
+				parent.right = temp.left;
+			}
+		}
+	}
+	
+	private int height(Node trav) {
+		if(trav == null) {
+			return -1;
+		}
+		int lh = height(trav.left);
+		int rh = height(trav.right);
+		int ht = Integer.max(lh, rh)+1;
+		
+		return ht;
+	}
+	
+	public int height() {
+		int ht = height(root);
+		return ht;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		BinSearchTree t = new BinSearchTree();
+		t.add(50);
+		t.add(25);
+		t.add(10);
+		t.add(75);
+		t.add(90);
+		t.add(35);
+		t.add(60);
+		t.add(15);
+		t.add(55);
+		t.add(70);
+		
+		t.preorder();
+		t.inorder();
+		t.postorder();
+		
+		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter Number you want Delete");
+//		int key =  sc.nextInt();
+		/*
+		Node temp = t.search(key);
+		if(temp == null) 
+			System.out.println("Node Not Found "+key);
+		else 
+			System.out.println("Node Found "+temp.getData());
+		*/
+		/*
+		Node[] find = t.searchWithParent(key);
+		Node temp = find[0] , parent = find[1];
+		if(temp == null)
+			System.out.println("Node Not Found : "+key);
+		else
+		{
+			System.out.println("Node  Found : " + temp.getData());
+			if(parent != null)
+				System.out.println("Parent Found : "+parent.getData());
+		}
+		*/
+		/*
+		t.preorder();
+		t.delete(key);
+		t.preorder();
+		*/
+		
+		int h = t.height();
+		System.out.println("Tree Height : "+h);
+		
+		}
+	}

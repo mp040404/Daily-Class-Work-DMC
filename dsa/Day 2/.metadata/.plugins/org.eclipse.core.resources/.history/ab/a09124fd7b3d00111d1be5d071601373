@@ -1,0 +1,26 @@
+package Insertion_Sorting;
+
+import java.util.Arrays;
+
+public class main {
+
+	public static void main(String[] arg) {
+		int arr[] = { 6,5,4,3,2,1 };
+		
+		System.out.println("Array before swap : " + Arrays.toString(arr));
+		InsertionSort(arr, arr.length);
+		System.out.println("Array after swap : " + Arrays.toString(arr));
+		
+		
+	}
+
+	private static void InsertionSort(int[] arr, int n) {
+		
+		int itr = 0 , copm = 0 ;
+		for(int i = 1 ; i < n ; i++) {
+			
+		}
+		
+	}
+	
+}

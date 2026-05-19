@@ -1,0 +1,19 @@
+package SinglyLinearLinkedList;
+
+public class main {
+	
+	public static void main(String[] args) {
+		
+		SinglyLinearLinkedList list = new SinglyLinearLinkedList();
+		
+		System.out.println("\n addFirst() : ");
+		list.addFirst(66);
+		list.addFirst(55);
+		list.addFirst(78);
+		list.displayList();
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+package com.mohit.linkedlist;
+
+
+import java.util.Scanner;
+
+class TaskNode {
+	
+	int taskid;
+	String taskName;
+	TaskNode next ,prev;
+	
+	public TaskNode() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public TaskNode(int taskid, String taskName) {
+		super();
+		this.taskid = taskid;
+		this.taskName = taskName;
+		next = prev = null;
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,41 @@
+package Selection_Sorting;
+
+import java.util.Arrays;
+
+public class main {
+
+	private static void SelectionSort(int[] arr, int n) {
+		
+		int itr = 0 , comp = 0 ;
+		
+		for(int i = 0 ; i < n-1 ; i++) {
+			itr++;
+			
+			for (int j = i+1 ; j < n ; j ++) {
+				 
+				comp++;
+				if(arr[i] > arr[j])
+				{
+					int t = arr[i];
+					arr[i] = arr[j];
+					arr[j] = t ;
+				}
+			}
+		}
+		
+		System.out.println("itr = "+itr +" comp = "+comp);
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		int arr[] = {30,20,10,40,60,50};
+		System.out.println("Array Before sort : " + Arrays.toString(arr) );
+		SelectionSort(arr,arr.length);
+		System.out.println("Array After sort : " + Arrays.toString(arr) );
+		
+		
+	}
+
+
+}

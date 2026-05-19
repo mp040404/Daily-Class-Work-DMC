@@ -1,0 +1,18 @@
+package SingleLinkList;
+
+public class SingleLinkList { //outer class
+	//inner class
+	static class node 
+	{
+		//data members node 
+		int data;
+		node next; // self referential class 
+		// members methods
+		public node(int data) {
+			super();
+			this.data = data;
+			this.next = null;
+		}
+	}//end of node class
+
+}

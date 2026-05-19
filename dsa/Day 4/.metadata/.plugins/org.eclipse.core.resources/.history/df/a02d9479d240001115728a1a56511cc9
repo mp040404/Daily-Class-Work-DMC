@@ -1,0 +1,233 @@
+package com.mohit.linkedlist;
+
+
+import java.util.Scanner;
+
+class TaskNode {
+    int taskId;
+    String taskName;
+    TaskNode next, prev;
+
+    public TaskNode(int taskId, String taskName) {
+        this.taskId = taskId;
+        this.taskName = taskName;
+        next = prev = null;
+    }
+}
+
+class TaskScheduler {
+    TaskNode head = null;
+
+    // Count tasks
+    public int countTasks() {
+        if (head == null) return 0;
+
+        int count = 0;
+        TaskNode temp = head;
+        do {
+            count++;
+            temp = temp.next;
+        } while (temp != head);
+
+        return count;
+    }
+
+    // Add task at position
+    public void addTask(int id, String name, int pos) {
+        TaskNode newNode = new TaskNode(id, name);
+
+        if (head == null) {
+            head = newNode;
+            head.next = head.prev = head;
+            return;
+        }
+
+        int size = countTasks();
+
+        if (pos < 1 || pos > size + 1) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        // Insert at position 1 (after head)
+        if (pos == 1) {
+            TaskNode last = head.prev;
+
+            newNode.next = head;
+            newNode.prev = last;
+
+            last.next = newNode;
+            head.prev = newNode;
+
+            head = newNode;
+            return;
+        }
+
+        TaskNode temp = head;
+        for (int i = 1; i < pos - 1; i++) {
+            temp = temp.next;
+        }
+
+        newNode.next = temp.next;
+        newNode.prev = temp;
+
+        temp.next.prev = newNode;
+        temp.next = newNode;
+    }
+
+    // Delete task
+    public void deleteTask(int pos) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        int size = countTasks();
+
+        if (pos < 1 || pos > size) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        // Delete head
+        if (pos == 1) {
+            if (head.next == head) {
+                head = null;
+                return;
+            }
+
+            TaskNode last = head.prev;
+            head = head.next;
+
+            head.prev = last;
+            last.next = head;
+            return;
+        }
+
+        TaskNode temp = head;
+        for (int i = 1; i < pos; i++) {
+            temp = temp.next;
+        }
+
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+    }
+
+    // Display forward
+    public void displayForward() {
+        if (head == null) {
+            System.out.println("Empty list");
+            return;
+        }
+
+        TaskNode temp = head;
+        do {
+            System.out.println(temp.taskId + " - " + temp.taskName);
+            temp = temp.next;
+        } while (temp != head);
+    }
+
+    // Display backward
+    public void displayBackward() {
+        if (head == null) {
+            System.out.println("Empty list");
+            return;
+        }
+
+        TaskNode temp = head.prev;
+        TaskNode last = temp;
+
+        do {
+            System.out.println(temp.taskId + " - " + temp.taskName);
+            temp = temp.prev;
+        } while (temp != last);
+    }
+
+    // Search by ID
+    public void searchTask(int id) {
+        if (head == null) {
+            System.out.println("List empty");
+            return;
+        }
+
+        TaskNode temp = head;
+        do {
+            if (temp.taskId == id) {
+                System.out.println("Found: " + temp.taskId + " - " + temp.taskName);
+                return;
+            }
+            temp = temp.next;
+        } while (temp != head);
+
+        System.out.println("Task not found");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        TaskScheduler ts = new TaskScheduler();
+
+        int choice;
+
+        do {
+            System.out.println("\n1. Add Task");
+            System.out.println("2. Delete Task");
+            System.out.println("3. Display Forward");
+            System.out.println("4. Display Backward");
+            System.out.println("5. Search Task");
+            System.out.println("6. Count Tasks");
+            System.out.println("7. Exit");
+
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Task ID: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter Task Name: ");
+                    String name = sc.nextLine();
+                    System.out.print("Enter Position: ");
+                    int pos = sc.nextInt();
+                    ts.addTask(id, name, pos);
+                    break;
+
+                case 2:
+                    System.out.print("Enter position to delete: ");
+                    int dpos = sc.nextInt();
+                    ts.deleteTask(dpos);
+                    break;
+
+                case 3:
+                    ts.displayForward();
+                    break;
+
+                case 4:
+                    ts.displayBackward();
+                    break;
+
+                case 5:
+                    System.out.print("Enter Task ID to search: ");
+                    int sid = sc.nextInt();
+                    ts.searchTask(sid);
+                    break;
+
+                case 6:
+                    System.out.println("Total Tasks: " + ts.countTasks());
+                    break;
+
+                case 7:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+        } while (choice != 7);
+
+        sc.close();
+    }
+}

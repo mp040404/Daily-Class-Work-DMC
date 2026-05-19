@@ -1,0 +1,13 @@
+package com.mohit.linkedlist;
+
+import com.mohit.linkedlist.TaskNode.TaskScheduler;
+
+public class main {
+	
+	public static void main(String[] args) {
+		TaskScheduler ts = new TaskScheduler();
+		
+		System.out.println("Total Tasks : "+ts.countTasks());
+	}
+
+}

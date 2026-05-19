@@ -1,0 +1,30 @@
+package linersearching;
+
+import java.util.Scanner;
+
+public class LinearSearch {
+
+	public static void main(String[] args) {
+		
+		Scanner sc =new Scanner(System.in);
+		
+		int arr[]= {33,55,88,77,44,11,66,22,99};
+		System.out.println("Enter Number :");
+		int m = sc.nextInt();
+		
+		int i =linearSearch(arr,arr.length,m);
+		
+		if(i == -1) {
+			System.out.println("key not Found");
+		}else {
+			System.out.println("Key Found");
+		}
+		
+	}
+
+	private static int linearSearch(int[] arr, int length, int m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

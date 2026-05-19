@@ -1,0 +1,42 @@
+package Linear_Queue;
+
+public class Queue {
+	
+	private int arr[];
+	private int rear , front ;
+	private int size ;
+	
+	
+	public Queue( int size) {
+		super();
+		this.arr = new int[size];
+		this.rear = -1;
+		this.front = -1;
+		this.size = size;
+	}
+	
+	public void push(int value) {
+		rear++;
+		arr[rear] = value ;
+		if(front == -1)
+			front = 0 ;
+	}
+	
+	public int pop() {
+		int t = arr[front];
+		front++;
+		return  t;	
+	}
+	public int peek() {
+		return arr[front];
+	}
+	public boolean isFull()
+	{
+		return rear == size - 1 ;
+	}
+	public boolean inEmpty()
+	{
+		return rear == -1 || front > rear ;
+	}
+
+}

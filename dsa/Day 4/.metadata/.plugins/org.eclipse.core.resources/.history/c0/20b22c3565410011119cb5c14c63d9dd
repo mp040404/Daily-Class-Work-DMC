@@ -1,0 +1,103 @@
+package practicepractice;
+
+public class TaskNode {
+	int taskid;
+	String taskname;
+	TaskNode next , prev;
+	public TaskNode(int taskid, String taskname) {
+		super();
+		this.taskid = taskid;
+		this.taskname = taskname;
+		
+		next = prev = null;
+	}
+}
+
+class TaskSchedular{
+	
+	TaskNode head = null;
+	
+	public int count() {
+		if(head == null)
+			return 0 ;
+		int count = 0 ;
+		TaskNode temp = head ;
+		do {
+			count++;
+			temp = temp.next; 
+		}while ( temp != head );
+		return count ;
+	}
+	
+	public void addTask(int taskid, String taskname , int pos ) {
+		TaskNode nn = new TaskNode(taskid, taskname);
+		if ( head == null) {
+			head = nn;
+			head.next = head.prev = head ;
+			return ;
+		}
+		int size = count();
+		
+		if ( pos < 1 || pos > size + 1) {
+			System.out.println("Invalid Position");
+			return ;
+		}
+		
+		if(pos == 1) {
+			TaskNode last = head.prev;
+			
+			nn.next = head ;
+			nn.prev = last ;
+			
+			last.next = nn ;
+			head.prev = nn ;
+			
+			head = nn ;
+			return ;
+		}
+	}
+	public void deleteTask(int pos) {
+		if(head == null) {
+			System.out.println("List is Empty");
+			return ;
+		}
+		int size = count();
+		System.out.println("invalid position");
+		return ;
+		
+//		if (pos == 1 ) {
+//			if (head.next == head ) {
+//				head = null ;
+//				return ;
+//			}
+//			
+//			TaskNode last = head.prev;
+//			head = head.next;
+//			
+//			head.prev = last ; 
+//			last.next = head ;
+//			return ;
+//		}
+		 if (pos == 1) {
+	            if (head.next == head) {
+	                head = null;
+	                return;
+	            }
+
+	            TaskNode last = head.prev;
+	            head = head.next;
+
+	            head.prev = last;
+	            last.next = head;
+	            return;
+	        }
+		 
+		 TaskNode temp = head ;
+		 for (int i = 1 ; i < pos ; i++) {
+			 temp = temp.next;
+		 }
+		 
+		 temp.prev.next = temp.next;
+		 temp.next.prev = temp.prev;
+	}
+}
