@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 04</title>
+    <style>
+        body {
+            background-color: rgb(128, 128, 128);
+            font-family: sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+        }
+
+        /* Toolbar Styles */
+        .main {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+            
+        .info {
+            display: inline-flex;
+            align-items: center;
+            background-color: hsl(0, 0%, 70%);
+            height: 60px;
+            border-radius: 8px;
+            padding: 0 20px;
+            margin-top: 1rem;
+            gap: 20px;
+            /* box-shadow: 0 4px 6px rgba(0,0,0,0.2); */
+        }
+
+        .info h2, .info h3 {
+            color: aliceblue;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .info button {
+            color: white;
+            background-color: blue;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Grid Layout */
+        .stick {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns as requested */
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Shared Note Styles */
+        .note {
+            position: relative; /* CRITICAL: This anchors the pin */
+            padding: 15px;
+            border: 10px solid white; 
+            width: 220px;
+            height: 220px;
+            /* box-shadow: 5px 5px 15px rgba(0,0,0,0.3); */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Note Colors */
+        .note1 { background: linear-gradient(white, yellow); }
+        .note2 { background: linear-gradient(white, pink); }
+        .note3 { background: linear-gradient(white, #e0b0ff); } 
+        .note4 { background: linear-gradient(rgb(0, 213, 255), rgb(0, 0, 107)); }
+
+        /* The Red Pin */
+        .note-pin {
+            position: absolute;
+            top: -25px; /* Sits on top of the white border */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            z-index: 10;
+        }
+
+        /* X Button */
+        .close-btn {
+            width: 20px;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+
+        .note h3 {
+            color: black;
+            font-size: 0.9rem;
+            margin: 10px 0 5px 0;
+        }
+
+        textarea {
+            background-color: transparent;
+            border: none;
+            resize: none;
+            flex-grow: 1;
+            font-family: inherit;
+            outline: none;
+        }
+
+        /* Special text color for the dark blue note */
+        .note4 h3, .note4 textarea {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="info">
+            <div>
+                <h2>HTML 5</h2>
+                <h3>sticky notes for web</h3>
+            </div>
+            <div>
+                <img src="./resources/check.png" alt="" width="30px">
+                <img src="./resources/cancel.png" alt="" width="30px">
+                <img src="./resources/zoom-in.png" alt="" width="30px">
+                <img src="./resources/zoom-out.png" alt="" width="30px">
+                <img src="./resources/twitter.png" alt="" width="30px">
+            </div>
+            <div><button>$ Donate</button></div>
+        </div>
+    </div>
+
+    <!-- First Row -->
+    <div class="stick">
+        <div class="note note1">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+
+        <div class="note note2">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+
+        <div class="note note3">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+
+        <div class="note note4">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="stick">
+        <div class="note note2">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+
+        <div class="note note3">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+
+        <div class="note note1">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+
+        <div class="note note4">
+            <img src="./resources/pin.png" alt="" class="note-pin">
+            <img src="./resources/x-button.png" alt="" class="close-btn">
+            <h3>28/03/2025 15:30 PM</h3>
+            <textarea placeholder="Type here...."></textarea>
+        </div>
+    </div>
+
+</body>
+</html>

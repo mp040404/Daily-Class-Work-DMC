@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 03-q2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        *
+        {
+            font-family: 'Roboto', sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body
+        {
+            background: linear-gradient(to bottom, #2b5876, #4e4376);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+            color: aliceblue;
+        }
+        .section
+        {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        img
+        {
+            width: 250px;
+            height: 250px;
+
+        }
+        .section div{
+            flex-basis: 30%;
+            background: #fff3f3;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            box-sizing: border-box;
+        }
+        button
+        {
+            width: 95%;
+            background-color: green;
+            color: #fff3f3;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Our Product</h1>
+        <section class="section">
+            <div>
+                <img src="https://p4-ofp.static.pub//fes/cms/2025/04/07/vgqxccqvn18mz57oj569w6hh163lyo284423.png" alt="">
+                <hr />
+                <h3>Product 1</h3>
+                <p>High-quality product that meets your needs.</p>
+                <h3>$805.08</h3>
+                <div class="button">
+                <button>Add to Cart</button>
+                </div>
+            </div>
+             <div>
+                <img src="https://m.media-amazon.com/images/I/81rRMwFG0+L._AC_UY327_FMwebp_QL65_.jpg" alt="">
+                <hr />
+                <h3>Product 2</h3>
+                <p>High-quality product that meets your needs.</p>
+                <h3>$805.08</h3>
+                <div>
+                <button class="button">Add to Cart</button>
+                </div>
+            </div>
+             <div>
+                <img src="https://png.pngtree.com/png-vector/20260111/ourlarge/pngtree-full-computer-keyboard-top-view-clean-layout-png-image_18468217.webp" alt="">
+                <hr />
+                <h3>Product 3</h3>
+                <p>High-quality product that meets your needs.</p>
+                <h3>$805.08</h3>
+                <div>
+                <button class="button">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
