@@ -1,0 +1,39 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Sb18jparelnApplication implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Sb18jparelnApplication.class, args);
+	}
+	
+	private EmpDao empDao;
+	private DeptDao deptDao;
+	private AddressDao addressDao;
+	private MeetingDao meetingDao;
+	
+	
+	@Autowired
+	public Sb18jparelnApplication(EmpDao empDao, DeptDao deptDao, AddressDao addressDao, MeetingDao meetingDao) {
+		super();
+		this.empDao = empDao;
+		this.deptDao = deptDao;
+		this.addressDao = addressDao;
+		this.meetingDao = meetingDao;
+	}
+
+
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		List<Emp> emp = new 
+		
+	}
+
+}

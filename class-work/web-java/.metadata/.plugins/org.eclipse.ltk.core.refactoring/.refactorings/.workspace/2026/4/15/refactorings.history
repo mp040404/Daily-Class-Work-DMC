@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;Sb10-MVC-1&apos; to &apos;Sb11-MVC&apos;&#x0D;&#x0A;- Original element: &apos;Sb10-MVC-1&apos;&#x0D;&#x0A;- Renamed element: &apos;Sb10-MVC-1&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;Sb10-MVC-1&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Sb10-MVC-1" name="Sb11-MVC" references="true" stamp="1775901211703" version="1.0"/>
+</session>

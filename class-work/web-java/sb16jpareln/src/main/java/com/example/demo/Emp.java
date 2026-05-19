@@ -1,0 +1,35 @@
+package com.example.demo;
+
+
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@ToString(exclude="meetingList")
+@Entity
+@Table(name = "emps")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Emp {
+	@Id
+	private int empno;
+	private String ename;
+	private Integer mgr;
+	private Integer deptno;
+	@ManyToMany
+	@JoinTable(name = "emp_meeting",
+	joinColumns = @JoinColumn(name="empno"),
+	inverseJoinColumns = @JoinColumn(name="meetno"))
+	private List<Meeting> meetingList;
+}

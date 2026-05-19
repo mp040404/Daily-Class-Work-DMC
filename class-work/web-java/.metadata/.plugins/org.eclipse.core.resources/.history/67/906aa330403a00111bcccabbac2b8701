@@ -1,0 +1,38 @@
+package com.example.demo.entity;
+
+import org.hibernate.annotations.ForeignKey;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+@Entity
+@ToString(exclude = "deptid")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
+public class Teacher {
+
+	
+	 
+	 @Id
+	 @Column(name = "teacher_id")
+	 private int tid;
+	 @Column(name = "teacher_name")
+	 private String tname;
+	 private String email;
+	 private String salary;
+	 @ManyToOne
+	 @JoinColumn(name = "dept_id")
+	 @JsonIgnore
+	 private Dept dept;
+}

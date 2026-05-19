@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Sb01-annccof/src/main/resources/beam.xml&apos; to &apos;beans.xml&apos;" description="Rename resource &apos;beam.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/beam.xml" name="beans.xml" stamp="1775650993376" updateReferences="true"/>
+</session>

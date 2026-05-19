@@ -1,0 +1,11 @@
+package com.example.demo.Dao;
+
+import java.util.List;
+
+import com.example.demo.entities.User;
+
+public interface UserDao {
+	
+	List<User> findAll();
+	User findByEmail(String email);
+}

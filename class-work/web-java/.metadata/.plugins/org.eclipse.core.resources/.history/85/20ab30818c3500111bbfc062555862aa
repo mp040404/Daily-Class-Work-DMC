@@ -1,0 +1,27 @@
+package BookController;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.entities.Book;
+import com.example.demo.service.BookServiceImpl;
+
+@Controller
+public class BookController {
+
+    @Autowired
+    private BookServiceImpl bookServiceImpl;
+
+    @PostMapping("/subjectbooks")
+    public String getBookOfSubject(@RequestParam("subject") String subject, Model model) {
+        List<Book> list = bookServiceImpl.getBookbySubject(subject);
+        model.addAttribute("books", list);
+        return "showbooks";
+    }
+}

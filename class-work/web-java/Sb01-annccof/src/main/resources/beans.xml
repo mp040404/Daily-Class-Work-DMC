@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="p1" class="com.example.demo.PersonImpl">
+		<property name="name" value="Nilesh"/>
+		<property name="age" value="42"/>
+	</bean>
+	<!-- setter based DI -->
+	<bean id="a1" class="com.example.demo.AccountImpl">
+		<property name="id" value="101"/>
+		<property name="type" value="Saving"/>
+		<property name="balance" value="40000"/>
+		<property name="accH" ref="p1"/>
+	</bean>
+	<!-- constructor based DI -->
+	<bean id="a2" class="com.example.demo.AccountImpl">
+		<constructor-arg index="0" value="102"/>
+		<constructor-arg index="1" value="Current"/>
+		<constructor-arg index="2" value="400000"/>
+		<constructor-arg index="3" ref="p1"/>
+	</bean>
+</beans>
+       

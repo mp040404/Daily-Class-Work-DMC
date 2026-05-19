@@ -1,0 +1,9 @@
+package com.example.demo.Rowmappers;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.example.demo.entities.User;
+
+public class UserRowMapping implements RowMapper<User>  {
+
+}

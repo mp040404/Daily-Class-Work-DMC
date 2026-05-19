@@ -1,0 +1,34 @@
+package com.example.demo.Dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.Rowmappers.UserRowMapping;
+import com.example.demo.entities.User;
+
+@Repository
+public class UserDaoImpl implements UserDao {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	private UserRowMapping userRowMapping;
+
+	@Override
+	public List<User> findAll() {
+		String sql = "Select * from Users";
+		return jdbcTemplate.query(sql, userRowMapping);
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		String sql = "SELECT * FROM users WHERE email=?";
+		List<User> list = jdbcTemplate.query(sql, userRowMapping, email);
+		return list.size() == 0 ? null : list.get(0);
+	}
+	
+}

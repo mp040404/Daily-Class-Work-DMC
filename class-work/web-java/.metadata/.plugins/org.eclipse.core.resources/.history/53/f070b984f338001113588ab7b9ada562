@@ -1,0 +1,28 @@
+package com.example.demo;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@ToString(exclude = "empList")
+@Entity
+@Table(name = "depts")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Dept {
+	@Id
+	private int deptno;
+	private String dname;
+	@OneToMany()
+	private List<Emp> empList;
+	
+	
+}

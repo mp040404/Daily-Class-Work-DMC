@@ -1,0 +1,29 @@
+package com.example.demo.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Teacher {
+
+	 teacher_id | teacher_name      | email                      | salary   | dept_id 
+	 
+	 @Id
+	 @Column(name = "teacher_id")
+	 private int tid;
+	 @Column(name = "teacher_name")
+	 private String tname;
+	 private String email;
+	 private String salary;
+	 @Column(name = "dept_id")
+	 private dept deptid;
+}

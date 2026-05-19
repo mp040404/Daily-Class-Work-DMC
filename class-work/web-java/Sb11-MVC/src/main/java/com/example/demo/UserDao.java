@@ -1,0 +1,16 @@
+package com.example.demo;
+
+import java.util.List;
+
+
+
+public interface UserDao {
+	List<User> findAll();
+	List<User> findByBornInYear(int year);
+	User findById(int userId);
+	User findByEmail(String email);
+	int save(User user);
+	int update(User user);
+	int changePassword(int userId, String newPasswd);
+	int deleteById(int userId);
+}

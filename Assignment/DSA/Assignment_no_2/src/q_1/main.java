@@ -1,0 +1,40 @@
+package q_1;
+
+import java.util.Arrays;
+
+public class main {
+	
+
+	public static void main(String[] args) {
+		int arr[] = { 10,20,30,40,50,60 };
+//		int arr[] = {6, 5, 4, 3, 2, 1};
+		System.out.println("Array before swap :"+Arrays.toString(arr));
+		InsertionSort(arr,arr.length);
+		System.out.println("Array After  swap :"+Arrays.toString(arr));
+	
+
+	}
+	private static void InsertionSort(int[] arr, int n) {
+		int itr = 0 , comp = 0;
+		for(int i = 1 ; i < n ; i++)
+		{
+			itr++;
+			int temp = arr[i];
+			int j ;
+			for (j=i-1 ; j>=0;j--)
+			{
+				comp++;
+				if(temp>arr[j]) {
+					arr[j+1] = arr[j];
+				}
+				else 
+					break;
+			}
+			arr[j+1] = temp ;
+		}
+		System.out.println("itr = "+itr+" comp = "+comp);
+		
+	}
+	
+
+}

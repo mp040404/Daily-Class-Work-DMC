@@ -1,0 +1,12 @@
+breadcrumb.org.eclipse.jdt.ui.JavaPerspective=true
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="demo02_01.User"><rhs name\="demo02_01.User"/></lhs><lhs name\="com.example.demo.Box"><rhs name\="com.example.demo.BoxImpl"/></lhs><lhs name\="com.example.demo.BoxImpl"><rhs name\="com.example.demo.BoxImpl"/></lhs><lhs name\="java.util.Iterator"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.lang.Enum"><rhs name\="jakarta.persistence.CascadeType"/><rhs name\="com.example.demo.entity.Resp$Status"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="jakarta.persistence.CascadeType"/><rhs name\="com.example.demo.entity.Resp$Status"/></lhs><lhs name\="com.example.demo.Dept"><rhs name\="com.example.demo.Dept"/></lhs><lhs name\="com.example.demo.Emp"><rhs name\="com.example.demo.Emp"/></lhs><lhs name\="org.modelmapper.ModelMapper"><rhs name\="org.modelmapper.ModelMapper"/></lhs><lhs name\="com.example.demo.entity.Resp$Status"><rhs name\="com.example.demo.entity.Resp$Status"/></lhs><lhs name\="com.example.demo.entity.Dept"><rhs name\="com.example.demo.entity.Dept"/></lhs></history>
+content_assist_number_of_computers=14
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+markOccurrences=false
+org.eclipse.jdt.ui.formatterprofiles.version=23
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

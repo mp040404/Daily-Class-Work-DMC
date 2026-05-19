@@ -1,0 +1,41 @@
+package com.example.demo;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import jakarta.transaction.Transactional;
+
+@SpringBootApplication
+public class Sb15jparelnApplication implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Sb15jparelnApplication.class, args);
+	}
+	@Autowired
+	private EmpDao empDao;
+	
+	@Autowired
+	private DeptDao deptDao;
+	@Transactional
+	public void run(String... args) throws Exception {
+		/*
+		int empId = 1;
+		Optional<Emp> oe = empDao.findById(empId);
+		if(oe.isPresent())
+		{
+			Emp e = oe.get();
+			System.out.println(e);
+			System.out.println("  --> "+e.getDept());
+		}
+		else
+			System.out.println("Emp not Found ... !");
+		
+		*/
+		
+	}
+
+}

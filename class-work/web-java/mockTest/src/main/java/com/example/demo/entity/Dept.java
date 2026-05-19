@@ -1,0 +1,40 @@
+package com.example.demo.entity;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@ToString(exclude = "techList")
+@Entity
+@Table(name = "Department")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Dept {
+
+	@Id
+	@Column(name = "dept_id")
+	private int deptid;
+	@Column(name = "dept_name")
+	private String deptname;
+	private String location;
+	@OneToMany(mappedBy = "dept",cascade = CascadeType.ALL)
+	List<Teacher> techList;
+	
+	
+}

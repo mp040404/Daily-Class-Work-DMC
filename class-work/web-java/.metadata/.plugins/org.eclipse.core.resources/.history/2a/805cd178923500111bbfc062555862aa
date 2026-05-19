@@ -1,0 +1,79 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+
+
+@Repository
+public class UserDaoImpl implements UserDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private UserRowMapper userRowMapper;
+	
+	@Override
+	public List<User> findAll() {
+		String sql = "SELECT * FROM users";
+		List<User> list = jdbcTemplate.query(sql, userRowMapper);
+		return list;
+	}
+	
+	@Override
+	public List<User> findByBornInYear(int year) {
+		String sql = "SELECT * FROM users WHERE YEAR(birth)=?";
+		List<User> list = jdbcTemplate.query(sql, userRowMapper, year);
+		return list;
+	}
+	
+	@Override
+	public User findById(int userId) {
+		String sql = "SELECT * FROM users WHERE id=?";
+		List<User> list = jdbcTemplate.query(sql, userRowMapper, userId);
+		return list.size() == 0 ? null : list.get(0);
+	}
+	
+	@Override
+	public User findByEmail(String email) {
+		String sql = "SELECT * FROM users WHERE email=?";
+		List<User> list = jdbcTemplate.query(sql, userRowMapper, email);
+		return list.size() == 0 ? null : list.get(0);
+	}
+	
+	@Override
+	public int save(User user) {
+		String sql =  "INSERT INTO users (name, passwd, email, addr, role, birth) VALUES (?, ?, ?, ?, ?, ?)";
+		int cnt = jdbcTemplate.update(sql, user.getName(), user.getPassword(), user.getEmail(), user.getAddr(), user.getRole(), user.getBirth());
+		return cnt;
+	}
+	
+	@Override
+	public int update(User user) {
+		String sql =  "UPDATE users SET name=?, passwd=?, email=?, addr=?, role=?, birth=? WHERE id=?";
+		int cnt = jdbcTemplate.update(sql, user.getName(), user.getPassword(), user.getEmail(), user.getAddr(), user.getRole(), user.getBirth(), user.getId());
+		return cnt;
+	}
+	
+	@Override
+	public int changePassword(int userId, String newPasswd) {
+		String sql =  "UPDATE users SET passwd=? WHERE id=?";
+		int cnt = jdbcTemplate.update(sql, newPasswd, userId);
+		return cnt;
+	}
+	
+	@Override
+	public int deleteById(int userId) {
+		String sql = "DELETE FROM users WHERE id=?";
+		int cnt = jdbcTemplate.update(sql, userId);
+		return cnt;
+	}
+}
+
+
+
+
+

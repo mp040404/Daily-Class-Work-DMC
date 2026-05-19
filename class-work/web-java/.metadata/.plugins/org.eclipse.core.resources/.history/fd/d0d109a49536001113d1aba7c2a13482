@@ -1,0 +1,30 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Dao.BookDao;
+import com.example.demo.Service.BookImplService;
+
+
+@RestController
+public class BookController {
+	
+	@Autowired
+	private BookImplService bookImplService;
+	
+	@PostMapping("/subjectbooks")
+	public String getBooksofSubject(@RequestParam("subject") String subject,Model model ) {
+		
+		List<Book> List = bookImplService.getBook(subject);
+		return subject;
+		
+	}
+	
+	
+
+}

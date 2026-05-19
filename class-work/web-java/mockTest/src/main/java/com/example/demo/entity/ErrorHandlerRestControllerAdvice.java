@@ -1,0 +1,15 @@
+package com.example.demo.entity;
+
+import java.net.ResponseCache;
+
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class ErrorHandlerRestControllerAdvice {
+
+	@ExceptionHandler
+	public Resp<?> handleError(Exception e){
+		return Resp.error(e.getClass().getName() + ": " + e.getMessage());
+	}
+}

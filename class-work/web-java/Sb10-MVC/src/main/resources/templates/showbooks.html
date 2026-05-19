@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Books</title>
+<style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+</head>
+<body>
+	<h2>Online Book Shop</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Author</th>
+				<th>Subject</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="b : ${books}">
+				<td th:text="${b.id}"></td>
+				<td th:text="${b.name}"></td>
+				<td th:text="${b.author}"></td>
+				<td th:text="${b.subject}"></td>
+				<td th:text="${b.price}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+package com.example.demo.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Dao.BookDao;
+import com.example.demo.entities.Book;
+
+@Service
+public class BookImplService {
+
+	@Autowired
+	private BookDao bookDao;
+	
+	public List<Book> getBook(String subject){
+		List<Book> book = bookDao.findBySubject(subject);
+		return book;	
+	}
+	
+}

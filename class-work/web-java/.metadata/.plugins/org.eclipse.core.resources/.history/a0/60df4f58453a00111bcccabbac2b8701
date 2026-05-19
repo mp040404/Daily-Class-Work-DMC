@@ -1,0 +1,39 @@
+package com.example.demo.entity;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DeptService {
+	
+	@Autowired
+	private DeptDao deptDao;
+	@Autowired
+	private TeacherDao teacherDao;
+	
+	public List<Dept> findAllDept() {
+		List<Dept> list = deptDao.findAll(); 
+		return list;
+	}
+
+	public Dept save(Dept d) {
+		
+		return deptDao.save(d);
+	}
+
+	public List<Teacher> findByDept_Deptid(int deptid) {
+		
+		try {
+			
+			return teacherDao.findByDept_Deptid(deptid);
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

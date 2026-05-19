@@ -1,0 +1,19 @@
+package com.example.demo.Dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.entities.Book;
+
+@Repository
+public class BookDaoImpl implements BookDao {
+
+	@Override
+	public List<Book> FindAll() {
+		String sql = "Select * from Books";
+		
+		return ;
+	}
+
+}

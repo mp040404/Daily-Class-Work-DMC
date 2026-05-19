@@ -1,0 +1,24 @@
+package com.example.demo;
+
+import java.sql.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+//@Getter @Setter @ToString
+@Data //  @Getter + @Setter + @RequiredArgsConstructor + @ToString + @EqualsAndHashCode.
+public class User {
+	private int id;
+	private String name;
+	private String passwd;
+	private String email;
+	private String addr;
+	private String role;
+	private Date birth;
+}

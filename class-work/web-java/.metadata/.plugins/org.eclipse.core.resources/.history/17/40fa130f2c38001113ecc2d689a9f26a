@@ -1,0 +1,15 @@
+package com.example.demo;
+
+import java.awt.event.ComponentListener;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Sb12jparelnApplication implements ComponentListener {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Sb12jparelnApplication.class, args);
+	}
+
+}

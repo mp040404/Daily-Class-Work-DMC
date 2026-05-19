@@ -1,0 +1,27 @@
+package com.example.demo.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Dao.UserDao;
+import com.example.demo.entities.User;
+import com.example.demo.pojos.Credentials;
+
+@Service
+public class UserServiceImpl {
+	
+	@Autowired
+	private UserDao userDao;
+	
+	public User authenticate(Credentials cr) {
+		
+		User dbUser = userDao.findByEmail(cr.getEmail());
+		
+		if(dbUser != null && dbUser.getPassword().equals(cr.getPassword()));
+			return dbUser;
+		
+		return null;
+		
+	}
+
+}

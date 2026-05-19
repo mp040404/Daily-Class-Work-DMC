@@ -1,0 +1,7 @@
+package com.example.demo.Rowmappers;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class BookRowmapper implements RowMapper<Book> {
+
+}

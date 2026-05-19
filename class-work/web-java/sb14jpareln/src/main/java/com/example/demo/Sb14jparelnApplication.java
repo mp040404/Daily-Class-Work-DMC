@@ -1,0 +1,42 @@
+package com.example.demo;
+
+import java.util.Optional;
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import jakarta.transaction.Transactional;
+
+
+@SpringBootApplication
+public class Sb14jparelnApplication implements CommandLineRunner{
+
+	public static void main(String[] args)  {
+		SpringApplication.run(Sb14jparelnApplication.class, args);
+	}
+
+	@Autowired
+	private DeptDao deptDao;
+	
+	@Transactional
+	public void run(String... args) throws Exception {
+	
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter dept id You Want to find department");
+		int deptid = sc.nextInt();
+		Optional<Dept> od = deptDao.findById(deptid);
+		if(od.isPresent()) {
+			Dept d = od.get();
+			System.out.println("Found: " + d);
+			for (Emp e : d.getEmpList())
+				System.out.println("  -> " + e);
+		}
+		else
+			System.out.println("Dept Not Found");
+		
+	}
+
+}
